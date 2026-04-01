@@ -15,11 +15,7 @@ India currently has over **45 million pending cases**. A highly contextual, func
 * **Base Model:** Mistral-7B-Instruct-v0.2
 * **Fine-Tuning:** LoRA Adapters over 4-bit quantization, optimized using [Unsloth](https://github.com/unslothai/unsloth) for extreme memory efficiency on a single free T4 GPU.
 * **Dataset:** 500K+ scraped judgments from the Indian Kanoon corpus.
-* **Retrieval/RAG:** Hybrid Retrieval Layer
-  * **Sparse (BM25):** For exact statute & penal code matching.
-  * **Dense (FAISS / Weaviate):** For semantic, context-aware precedent retrieval. 
-* **Backend:** LangChain
-* **Frontend:** Next.js Dashboard
+
 
 ---
 
@@ -40,12 +36,9 @@ Using a standard Colab T4 GPU, the 7-Billion parameter Mistral model is actively
 3. **Training:** `SFTTrainer` consumes the ChatML dataset, teaching Mistral not just how to speak, but how to analyze facts and output judgments mimicking Indian supreme/high courts. 
 4. **Adapter Push:** The newly mapped 100MB weights are seamlessly pushed back to the HuggingFace Hub.
 
-### Stage 3: Hybrid RAG Architecture & UI *(In Progress)*
-Fine-tuning teaches the model *how* to speak like an Indian lawyer, but RAG gives it the memory of the entire constitution exactly as it stands today.
-1. **Dual Retrieval VectorDB:** Combining BM25 keyword matching for specific statutes with Weaviate Dense Vector embeddings to fetch highly similar case backgrounds.
-2. **Next.js Dashboard:** A sleek, minimal web interface where users input case "Facts", and get back legal reasoning, predicted verdicts, and cited precedents.
+## Model
 
----
+Link : https://huggingface.co/SCARA02/lawgpt-mistral-7b-v1
 
 ## 💻 How to Replicate / Run
 
